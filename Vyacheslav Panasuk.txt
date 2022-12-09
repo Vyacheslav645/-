@@ -1,0 +1,35 @@
+#Vyacheslav Panasuk, KI-3
+f = open("destiny.txt", "w")
+f.write("A big black bug bit a big black dog on his big black nose")
+f.close()
+# We open the file in read mode
+text = open("destiny.txt", "r")
+  
+# We create an empty dictionary
+d = dict()
+  
+# We loop through each line of the file
+for line in text:
+    # We remove the leading spaces and newline character
+    line = line.strip()
+  
+    # We convert the characters in line to lowercase 
+    line = line.lower()
+  
+    # We split the line into words
+    words = line.split()
+                         
+  
+    # We iterate over each word in line
+    for word in words:
+        # We check if the word is already in dictionary
+        if word in d:
+            # We increment count of word by 1
+            d[word] = d[word] + 1
+        else:
+            # We add the word to dictionary with count 1
+            d[word] = 1
+  
+# We print the contents of dictionary
+for key in list(d.keys()):
+    print(key,d[key])
